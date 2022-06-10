@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+
+    List<ResultadosModel> resultados = (List<ResultadosModel>)ViewBag.ListaResultados;
+
+
+
+}
+<div class="text-center">
+    <h1 class="tittle">FTR</h1><br><br><br><br>
+</div>
+    <div class="container">
+        <div class="row">
+        <div class="col-md-4">
+            <a href='@Url.Action("Resultados","Home")' class="btn btn-primary">
+            <p class="button">Resultados</p>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <p class="button">Destacados</p>
+        </div>
+        <div class="col-md-4">
+            <p class="button">Buscar Jugadores</p>
+        </div>
+    </div>
+    @foreach (var res in resultados)
+    {<li>@res.Equipo1 @res.Goles1  vs @res.Equipo2 @res.Goles2</li>}
+</div>
+

@@ -25,9 +25,9 @@ Where F.Fecha = 1 AND F.IdLiga = 1
             using(SqlConnection db = new SqlConnection(_ConnectionString))
             {
                     sql = "Select E1.Nombre AS Equipo1, P.Goles1, E2.Nombre AS Equipo2, P.Goles2  From Partidos P "+
-                    "Inner Join Equipos E1 on P.IdEquipo1 = E1.IdEquipo"+
-                    "Inner Join Equipos E2 on P.IdEquipo2 = E2.IdEquipo"+
-                    "Inner join Fechas F on P.IdFecha = F.IdFecha"+
+                    "Inner Join Equipos E1 on P.IdEquipo1 = E1.IdEquipo "+
+                    "Inner Join Equipos E2 on P.IdEquipo2 = E2.IdEquipo "+
+                    "Inner join Fechas F on P.IdFecha = F.IdFecha "+
                     "Where F.Fecha = 1 AND F.IdLiga = 1";
                     Lista = db.Query<ResultadosModel>(sql).ToList();
             }

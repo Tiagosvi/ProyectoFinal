@@ -24,7 +24,7 @@ namespace ProyectoFinal.Controllers
             return View();
         }
 
-        public IActionResult ConsultaResultados()
+        public IActionResult Resultados()
         {
             ViewBag.ListaResultados = BD.ListarResultados();
             return View("Resultados");

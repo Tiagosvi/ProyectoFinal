@@ -71,11 +71,14 @@ body {
 }
 
 
-
+/*
 body {
   background-image: url("/img/fondo.jpg");
   background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
+*/
 
 .tittle {
   color:white;
@@ -87,4 +90,27 @@ body {
   font-size: 26px;
   color: white;
   text-align: center;
+}
+
+tr{
+  color:white;
+}
+
+.scoreboard {
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  widows: 300px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.scoreboard__name, .scoreboard__score {
+  padding: 10px;
+  text-align: center;
+}
+
+.scoreboard__name{
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+
 }

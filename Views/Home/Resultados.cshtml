@@ -1,3 +1,7 @@
+<head>
+<link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+</head>
+<body>
 @{
     ViewData["Title"] = "Home Page";
 
@@ -8,20 +12,33 @@
 }
 @foreach (var res in resultados){
     <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-            <div class="scoreboard__name">@res.Equipo1</div>
-            <div class="scoreboard__score">@res.Goles1</div>
+
+        <div class="row" style="width:100%">
+
+            <div class="col-md-5">
+                <div class="row">
+                    <div class="scoreboard__name">@res.Equipo1</div>
+                    <div class="scoreboard__score">@res.Goles1</div>
+                </div>
             </div>
-            <div class="col-md-6">
-            <div class="scoreboard__name">@res.Equipo2</div>
-            <div class="scoreboard__score">@res.Goles2</div>
+
+            <div class="col-md-2">
+                <h3>VS</h3>
             </div>
+
+            <div class="col-md-5">
+                <div class="row">
+                    <div class="scoreboard__score">@res.Goles2</div> 
+                    <div class="scoreboard__name">@res.Equipo2</div>
+                    
+                </div>
             </div>
+
         </div>
+    </div>
 
 }
 
     @foreach (var res in resultados)
    {<li>@res.Equipo1 @res.Goles1  vs @res.Equipo2 @res.Goles2</li>}
-
+</body>

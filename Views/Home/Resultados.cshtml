@@ -12,8 +12,23 @@
 }
 <br>
 <br>
-
+    <div class="container">
+        <div class = "row">
+            <div class="col-md-6">
+                <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Elige una fecha
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href='@Url.Action("Home","Resultados", new{fecha=1})'>Fecha 1</a>
+                 <a class="dropdown-item" href="#">Another action</a>
+                 <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+</div>
+</div>
+    <div class="col-md-6 der">
   <input type="text" placeholder="Elige una liga para buscar...">
+</div>
 </div>
 <br>
 <br>
@@ -46,7 +61,6 @@
     </div>
 
 }
-
-    @foreach (var res in resultados)
-   {<li>@res.Equipo1 @res.Goles1  vs @res.Equipo2 @res.Goles2</li>}
+@foreach (var res in resultados)
+ {<li>@res.Equipo1 @res.Goles1  vs @res.Equipo2 @res.Goles2</li>}
 </body>

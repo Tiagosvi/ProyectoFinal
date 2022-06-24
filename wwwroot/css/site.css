@@ -131,3 +131,11 @@ tr{
   text-align: center;
 }
 
+
+.cancel {
+  display:inline;
+}
+
+.der{
+  text-align: right;
+}

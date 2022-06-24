@@ -82,7 +82,7 @@ body {
 
 
 .tittle {
-  color:white;
+  color:black;
   font-size: 80px;
   font-family: fantasy;
 }
@@ -121,3 +121,13 @@ tr{
   widows: 300px;
   font-family: 'Quicksand', sans-serif;
 }
+
+.centrar {
+  width: 800px; 
+  margin: 0 auto;
+}
+
+.vscen{
+  text-align: center;
+}
+

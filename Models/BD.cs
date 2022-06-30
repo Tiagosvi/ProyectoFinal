@@ -9,7 +9,7 @@ namespace ProyectoFinal.Models
 {
     public static class BD
     {
-        private static string _ConnectionString = @"Server=A-CIDI-104;Database=BaseProyecto;Trusted_Connection=True;";
+        private static string _ConnectionString = @"Server=A-CIDI-131;Database=BaseProyecto;Trusted_Connection=True;";
         private static string sql="";
 
 
@@ -19,7 +19,16 @@ Inner Join Equipos E2 on P.IdEquipo2 = E2.IdEquipo
 inner join Fechas F on P.IdFecha = F.IdFecha
 Where F.Fecha = 1 AND F.IdLiga = 1
  */
-
+public static List<LigasModel> ListarLigas()
+{
+    List<LigasModel> Lista = null;
+    using(SqlConnection db = new SqlConnection(_ConnectionString))
+    {
+        sql = "SELECT * FROM Ligas";
+        Lista = db.Query<LigasModel>(sql).ToList();
+    }
+    return Lista;
+}
 public static List<ResultadosModel> ListarResultados()
         {
             List<ResultadosModel> Lista = null;

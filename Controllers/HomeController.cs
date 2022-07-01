@@ -24,10 +24,15 @@ namespace ProyectoFinal.Controllers
             return View();
         }
 
-        public IActionResult SeleccionarLiga()
+        public IActionResult SeleccionarLiga(int liga = 0)
         {
+            
             ViewBag.ListaLigas=BD.ListarLigas();
             ViewBag.ListaResultados = BD.ListarResultados();
+            ViewBag.LigaSeleccionada = liga;
+            if(ViewBag.LigaSeleccionada > 0){
+                ViewBag.ListaFechas=BD.ListarFechas();
+            }
             return View("Resultados");
         }
 

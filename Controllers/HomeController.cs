@@ -24,14 +24,18 @@ namespace ProyectoFinal.Controllers
             return View();
         }
 
-        public IActionResult SeleccionarLiga(int liga = 0)
+        public IActionResult SeleccionarLiga(int liga = 0, int fecha=0)
         {
-            
-            ViewBag.ListaLigas=BD.ListarLigas();
-            ViewBag.ListaResultados = BD.ListarResultados();
+            //si viene liga y no fecha solo carga combo de fechas 
+            ViewBag.ListaLigas = BD.ListarLigas();
             ViewBag.LigaSeleccionada = liga;
-            if(ViewBag.LigaSeleccionada > 0){
-                ViewBag.ListaFechas=BD.ListarFechas();
+            if(liga > 0){
+                ViewBag.ListaFechas = BD.ListarFechas(liga);
+            }
+            if(liga>0 && fecha>0)
+            {
+                ViewBag.FechaSeleccionada=fecha;
+                ViewBag.ListaResultados = BD.ListarResultados(/*pasar liga y fecha*/);
             }
             return View("Resultados");
         }

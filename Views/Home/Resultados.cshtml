@@ -4,29 +4,56 @@
 <body>
 @{
     ViewData["Title"] = "Home Page";
-
     List<ResultadosModel> resultados = (List<ResultadosModel>)ViewBag.ListaResultados;
-
-
-
 }
 <br>
 <br>
     <div class="container">
         <div class = "row">
             <div class="col-md-6">
-                <div class="dropdown" >
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Elige una Liga
-                </button>
-                <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
-                @foreach(LigasModel UnaLiga in ViewBag.ListaLigas)
-                {
-                     <a class="dropdown-item" href="#">@UnaLiga.NombreLiga</a>
-                }
+<form method="POST" action='@Url.Action("SeleccionarLiga","Home")'>
+    <select name="liga" onchange="this.form.submit()">
+        @foreach (LigasModel UnaLiga in ViewBag.ListaLigas)
+        {
+          <option value="@UnaLiga.IdLiga">@UnaLiga.NombreLiga</option>
+        }
+    </select>
+
+    @if (View > 0)
+
+
+
+</form>
+
+
+                    Elige una Liga
+                    </button>
+                    <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
+                        @foreach(LigasModel UnaLiga in ViewBag.ListaLigas)
+                        {
+                            <a class="dropdown-item" href="#">@UnaLiga.NombreLiga</a>
+                        }
+                    </div>
+                </div>
             </div>
-</div>
-</div>
+            @if(ViewBag.ListaFechas!=null)
+            {
+                <div class="col-md-6">
+                    <div class="dropdown" >
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Elige una Fecha
+                        </button>
+                        <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
+                            @foreach(LigasModel UnaLiga in ViewBag.ListaLigas)
+                            {
+                                <a class="dropdown-item" href="#">@UnaLiga.NombreLiga</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
 <br>
 <br>
 <br>

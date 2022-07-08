@@ -9,7 +9,7 @@ namespace ProyectoFinal.Models
 {
     public static class BD
     {
-        private static string _ConnectionString = @"Server=A-CIDI-105;Database=BaseProyecto;Trusted_Connection=True;";
+        private static string _ConnectionString = @"Server=A-CIDI-137;Database=BaseProyecto;Trusted_Connection=True;";
         private static string sql="";
 
 
@@ -32,8 +32,7 @@ Where F.Fecha = 1 AND F.IdLiga = 1
     return ListaFec;
 }
 
-public IActionResult 
-public static List<LigasModel> ListarLigas()
+ public static List<LigasModel> ListarLigas()
 {
     List<LigasModel> Lista = null;
     using(SqlConnection db = new SqlConnection(_ConnectionString))

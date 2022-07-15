@@ -13,9 +13,17 @@
             <div class="col-md-6">
 <form method="POST" action='@Url.Action("SeleccionarLiga","Home")'>
     <select name="liga" onchange="this.form.submit()">
+        <option value="0">Elegir</option>
         @foreach (LigasModel UnaLiga in ViewBag.ListaLigas)
         {
-          <option value="@UnaLiga.IdLiga">@UnaLiga.NombreLiga</option>
+          if(UnaLiga.IdLiga==ViewBag.LigaSeleccionada)
+          {  
+              <option selected value="@UnaLiga.IdLiga">@UnaLiga.NombreLiga</option>
+          }
+          else
+          {
+              <option value="@UnaLiga.IdLiga">@UnaLiga.NombreLiga</option>
+          }  
         }
     </select>
 
@@ -24,6 +32,7 @@
         <select name="fecha" onchange="this.form.submit()">
         @foreach (FechasModel UnaFecha in ViewBag.ListaFechas)
         {
+
           <option value="@UnaFecha.IdFecha">@UnaFecha.Fecha</option>
         }
         </select>
@@ -32,69 +41,6 @@
 
 
 </form>
-
-
-                    Elige una Liga
-                    </button>
-                    <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
-                        @foreach(LigasModel UnaLiga in ViewBag.ListaLigas)
-                        {
-                            <a class="dropdown-item" href="#">@UnaLiga.NombreLiga</a>
-                        }
-                    </div>
-                </div>
-            </div>
-            @if(ViewBag.ListaFechas!=null)
-            {
-                <div class="col-md-6">
-                    <div class="dropdown" >
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Elige una Fecha
-                        </button>
-                        <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
-                            @foreach(LigasModel UnaLiga in ViewBag.ListaLigas)
-                            {
-                                <a class="dropdown-item" href="#">@UnaLiga.NombreLiga</a>
-                            }
-                        </div>
-                    </div>
-                </div>
-            }
-        </div>
-    </div>
-<br>
-<br>
-<br>
-@foreach (var res in resultados){
-    <div class="container centrar">
-
-        <div class="row" style="width:100%">
-
-            <div class="col-md-5">
-                <div class="row">
-                    <div class="scoreboard__name">@res.Equipo1</div>
-                    <div class="scoreboard__score">@res.Goles1</div>
-                </div>
-            </div>
-
-            <div class="col-md-2">
-                <h3 class="vscen">VS</h3>
-            </div>
-
-            <div class="col-md-5">
-                <div class="row">
-                    <div class="scoreboard__score">@res.Goles2</div> 
-                    <div class="scoreboard__name">@res.Equipo2</div>
-                    
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-}
-@foreach (var res in resultados)
- {<li>@res.Equipo1 @res.Goles1  vs @res.Equipo2 @res.Goles2</li>}
 
 
 </body>

@@ -37,6 +37,7 @@ namespace ProyectoFinal.Controllers
                 ViewBag.FechaSeleccionada=fecha;
                 ViewBag.ListaResultados = BD.ListarResultados(/*pasar liga y fecha*/);
             }
+
             return View("Resultados");
         }
 

@@ -42,16 +42,27 @@ Where F.Fecha = 1 AND F.IdLiga = 1
     }
     return Lista;
 }
+
+  public static  List<ResultadosModel> ListaResultados(int IdLiga, int IdFecha ){
+            ResultadosModel Resultados = null;
+            using(SqlConnection db = new SqlConnection(_connectionString)){
+                string sql="SELECT * from productos WHERE IdLiga = @pIdLiga && IdFecha =@pIdFecha";
+                Resultados = db.QueryFirstOrDefault<ResultadosModel>(sql, new{pIdLiga = IdLiga, pIdFecha = IdFecha});
+            }
+            return Resultados;
+
+        }
+    }
+}
+
+
+/*
 public static List<ResultadosModel> ListarResultados()
         {
             List<ResultadosModel> Lista = null;
             using(SqlConnection db = new SqlConnection(_ConnectionString))
             {
-                    sql = "Select E1.Nombre AS Equipo1, P.Goles1, E2.Nombre AS Equipo2, P.Goles2 From Partidos P "+
-                    "Inner Join Equipos E1 on P.IdEquipo1 = E1.IdEquipo "+
-                    "Inner Join Equipos E2 on P.IdEquipo2 = E2.IdEquipo "+
-                    "Inner join Fechas F on P.IdFecha = F.IdFecha "+
-                    "Where F.Fecha = 1 AND F.IdLiga = 1";
+                    sql = 
                     Lista = db.Query<ResultadosModel>(sql).ToList();
             }
             return Lista;
@@ -60,20 +71,11 @@ public static List<ResultadosModel> ListarResultados()
 
 
 
-    public static List<ResultadosModel> ListarResultadosXFecha(int fecha)
-        {
-            List<ResultadosModel> Lista = null;
-            using(SqlConnection db = new SqlConnection(_ConnectionString))
-            {
-                    sql = "Select E1.Nombre AS Equipo1, P.Goles1, E2.Nombre AS Equipo2, P.Goles2 From Partidos P "+
+
+
+/*
+"Select E1.Nombre AS Equipo1, P.Goles1, E2.Nombre AS Equipo2, P.Goles2 From Partidos P "+
                     "Inner Join Equipos E1 on P.IdEquipo1 = E1.IdEquipo "+
                     "Inner Join Equipos E2 on P.IdEquipo2 = E2.IdEquipo "+
                     "Inner join Fechas F on P.IdFecha = F.IdFecha "+
-                    "Where F.Fecha ="+ fecha +"AND F.IdLiga = 1";
-                    Lista = db.Query<ResultadosModel>(sql).ToList();
-            }
-            return Lista;
-        }
-
-}
-}
+                    "Where F.Fecha = 1 AND F.IdLiga = 1";*/

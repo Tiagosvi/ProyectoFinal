@@ -18,12 +18,13 @@ namespace ProyectoFinal.Controllers
             _logger = logger;
         }
 
+/*
         public IActionResult Index()
         {
-            ViewBag.ListaResultados = BD.ListarResultados();
+            ViewBag.ListaResultados = BD.ListaResultados();
             return View();
         }
-
+*/
         public IActionResult SeleccionarLiga(int liga = 0, int fecha=0)
         {
             //si viene liga y no fecha solo carga combo de fechas 
@@ -35,17 +36,16 @@ namespace ProyectoFinal.Controllers
             if(liga>0 && fecha>0)
             {
                 ViewBag.FechaSeleccionada=fecha;
-                ViewBag.ListaResultados = BD.ListarResultados(/*pasar liga y fecha*/);
+                ViewBag.ListaResultados = BD.ListaResultados(liga, fecha);
             }
 
             return View("Resultados");
         }
 
-        public IActionResult Resultados(int fecha)
+        public IActionResult Resultados(int fecha, int liga)
         {
 
-            ViewBag.ListaResultados = BD.ListarResultados();
-            ViewBag.ListaResultados = BD.ListarResultadosXFecha(fecha);
+            ViewBag.ListaResultados = BD.ListaResultados(fecha, liga);
             return View("Resultados");
         }
 

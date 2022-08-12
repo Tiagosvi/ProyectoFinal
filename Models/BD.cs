@@ -9,7 +9,7 @@ namespace ProyectoFinal.Models
 {
     public static class BD
     {
-        private static string _ConnectionString = @"Server=A-CIDI-105;Database=BaseProyecto;Trusted_Connection=True;";
+        private static string _connectionString = @"Server=A-PHZ2-CIDI-047;Database=BaseProyecto;Trusted_Connection=True;";
         private static string sql="";
 
 
@@ -24,7 +24,7 @@ Where F.Fecha = 1 AND F.IdLiga = 1
  public static List<FechasModel> ListarFechas(int idLiga)
 {
     List<FechasModel> ListaFec = null;
-    using(SqlConnection db = new SqlConnection(_ConnectionString))
+    using(SqlConnection db = new SqlConnection(_connectionString))
     {
         sql = "SELECT * FROM Fechas Where idLiga=@pIdLiga";
         ListaFec = db.Query<FechasModel>(sql, new { pIdLiga = idLiga }).ToList();
@@ -35,7 +35,7 @@ Where F.Fecha = 1 AND F.IdLiga = 1
  public static List<LigasModel> ListarLigas()
 {
     List<LigasModel> Lista = null;
-    using(SqlConnection db = new SqlConnection(_ConnectionString))
+    using(SqlConnection db = new SqlConnection(_connectionString))
     {
         sql = "SELECT * FROM Ligas";
         Lista = db.Query<LigasModel>(sql).ToList();
@@ -43,13 +43,13 @@ Where F.Fecha = 1 AND F.IdLiga = 1
     return Lista;
 }
 
-  public static  List<ResultadosModel> ListaResultados(int IdLiga, int IdFecha ){
-            ResultadosModel Resultados = null;
+  public static  List<FechasModel> ListaResultados(int IdLiga, int IdFecha ){
+             List<FechasModel> listasResultados = null;
             using(SqlConnection db = new SqlConnection(_connectionString)){
-                string sql="SELECT * from productos WHERE IdLiga = @pIdLiga && IdFecha =@pIdFecha";
-                Resultados = db.QueryFirstOrDefault<ResultadosModel>(sql, new{pIdLiga = IdLiga, pIdFecha = IdFecha});
+                string sql="SELECT * from Fechas WHERE IdLiga = @pIdLiga && IdFecha =@pIdFecha";
+                listasResultados = db.QueryFirstOrDefault<FechasModel>(sql, new{pIdLiga = IdLiga, pIdFecha = IdFecha});
             }
-            return Resultados;
+            return listasResultados;
 
         }
     }

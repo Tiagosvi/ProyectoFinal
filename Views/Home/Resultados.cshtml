@@ -29,17 +29,16 @@
 
     @if (ViewBag.LigaSeleccionada > 0)
     {
-        <select name="fecha" onchange="this.form.submit()">
-        @foreach (FechasModel UnaFecha in ViewBag.ListaFechas)
-        {
-
-          <option value="@UnaFecha.IdFecha">@UnaFecha.Fecha</option>
-        }
-        </select>
+            <select name="fecha" onchange="this.form.submit()">
+                <option value="0">Elegir</option>
+            @foreach (FechasModel UnaFecha in ViewBag.ListaFechas)
+            {
+                
+            <option value="@UnaFecha.IdFecha">@UnaFecha.Fecha</option>
+            }
+            </select>
+       
     }
-
-
-
 </form>
 @if(resultados !=null){
 foreach (var res in resultados)

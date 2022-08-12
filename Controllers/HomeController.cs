@@ -18,13 +18,15 @@ namespace ProyectoFinal.Controllers
             _logger = logger;
         }
 
-/*
+
         public IActionResult Index()
         {
-            ViewBag.ListaResultados = BD.ListaResultados();
             return View();
         }
-*/
+
+
+
+
         public IActionResult SeleccionarLiga(int liga = 0, int fecha=0)
         {
             //si viene liga y no fecha solo carga combo de fechas 
@@ -42,12 +44,7 @@ namespace ProyectoFinal.Controllers
             return View("Resultados");
         }
 
-        public IActionResult Resultados(int fecha, int liga)
-        {
-
-            ViewBag.ListaResultados = BD.ListaResultados(fecha, liga);
-            return View("Resultados");
-        }
+      
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

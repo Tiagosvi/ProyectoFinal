@@ -4,7 +4,7 @@
 <body>
 @{
     ViewData["Title"] = "Home Page";
-    List<ResultadosModel> resultados = (List<ResultadosModel>)ViewBag.ListaResultados;
+    var resultados = (IEnumerable<ResultadosModel>)ViewBag.ListaResultados;
 }
 <br>
 <br>

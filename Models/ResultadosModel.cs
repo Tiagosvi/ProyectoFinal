@@ -10,6 +10,9 @@ namespace ProyectoFinal.Models
         public string Equipo2 { get ; set ; }
         public int Goles1 { get ; set ; }
         public int Goles2 { get ; set ; }
+        public string UrlImagenEquipo1 { get ; set ; }
+        public string UrlImagenEquipo2 { get ; set ; }
+
         
         
     }

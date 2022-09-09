@@ -46,7 +46,7 @@ Where F.Fecha = 1 AND F.IdLiga = 1
   public static  IEnumerable<ResultadosModel> ListaResultados(int IdLiga, int IdFecha ){
             IEnumerable<ResultadosModel> listasResultados = null;
             using(SqlConnection db = new SqlConnection(_connectionString)){
-                string sql="Select E1.Nombre AS Equipo1, P.Goles1, E2.Nombre AS Equipo2, P.Goles2  From Partidos P " + 
+                string sql="Select E1.Nombre AS Equipo1, E1.Imagen as UrlImagenEquipo1, P.Goles1, E2.Nombre AS Equipo2, E2.Imagen UrlImagenEquipo2, P.Goles2 From Partidos P " + 
                     "Inner Join Equipos E1 on P.IdEquipo1 = E1.IdEquipo "+
                     "Inner Join Equipos E2 on P.IdEquipo2 = E2.IdEquipo "+
                     "Inner join Fechas F on P.IdFecha = F.IdFecha "+

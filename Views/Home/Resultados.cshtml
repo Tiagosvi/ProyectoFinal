@@ -44,9 +44,9 @@
 <div class="scoreboard">
     @if(resultados !=null){
         foreach (var res in resultados){
-				<div class="scoreboard__name scoreboard__name--one">@res.Equipo1</div>
+				<div class="scoreboard__name scoreboard__name--one"><img src="@Url.Content(res.UrlImagenEquipo1)" alt="Logo Equipo" width="50" height="50"> @res.Equipo1</div>
                 <!-- PONER imagen -->
-				<div class="scoreboard__name scoreboard__name--two">@res.Equipo2</div>
+				<div class="scoreboard__name scoreboard__name--two"><img src="@Url.Content(res.UrlImagenEquipo2)" alt="Logo Equipo" width="50" height="50"> @res.Equipo2</div>
 				<div class="scoreboard__score" data-for-player="one">@res.Goles1</div>
 				<div class="scoreboard__score" data-for-player="two">@res.Goles2</div>
         }}

@@ -7,12 +7,14 @@
     var resultados = (IEnumerable<ResultadosModel>)ViewBag.ListaResultados;
 }
 <br>
-<br>
-    <div class="container">
+
+<div class="container">
         <div class = "row">
-            <div class="col-md-6">
+            <div class="col-md-6 pull-left">
 <form method="POST" action='@Url.Action("SeleccionarLiga","Home")'>
-    <select name="liga" onchange="this.form.submit()">
+    <div class="izq"></div>
+<div class="sidebar-box">
+    <select name="liga" class="select-css" onchange="this.form.submit()">
         <option value="0">Elegir</option>
         @foreach (LigasModel UnaLiga in ViewBag.ListaLigas)
         {
@@ -29,7 +31,7 @@
 
     @if (ViewBag.LigaSeleccionada > 0)
     {
-            <select name="fecha" onchange="this.form.submit()">
+            <select name="fecha" class= "select-css" onchange="this.form.submit()">
                 <option value="0">Elegir</option>
             @foreach (FechasModel UnaFecha in ViewBag.ListaFechas)
             {
@@ -39,6 +41,7 @@
             </select>
        
     }
+</div>
 </form>
 
 <div class="scoreboard">

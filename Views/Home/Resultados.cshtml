@@ -44,18 +44,25 @@
     }
 </div>
 </form>
-
-
-<div class="card center">
-  <h5 class="card-header"></h5>
-@if(resultados !=null){
-        foreach (var res in resultados){
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-    }} 
+<div class="row">
+ <div class="col-md-12">
+     @if(resultados !=null){
+    foreach (var res in resultados){
+    <div class="card center">
+     <h5 class="card-header"></h5>
+                <div class="card-body">
+                     <h5 class="card-title">Resultado</h5>
+                        <div class="card-text center"> 
+                             <img src="@Url.Content(res.UrlImagenEquipo1)" alt="Logo Equipo" width="50" height="50"> @res.Goles1 @res.Goles2  <img src="@Url.Content(res.UrlImagenEquipo2)" alt="Logo Equipo" width="50" height="50"> 
+                
+                <br>
+        
+        </div>
+        </div>
+    </div>
+    <br>
+    }}
+</div>
 </div>
 
 

@@ -6,6 +6,7 @@
     ViewData["Title"] = "Home Page";
     var resultados = (IEnumerable<ResultadosModel>)ViewBag.ListaResultados;
 }
+
 <br>
 
 <div class="container">
@@ -43,6 +44,21 @@
     }
 </div>
 </form>
+
+
+<div class="card center">
+  <h5 class="card-header"></h5>
+@if(resultados !=null){
+        foreach (var res in resultados){
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+    }} 
+</div>
+
+
 
 <div class="scoreboard">
     @if(resultados !=null){

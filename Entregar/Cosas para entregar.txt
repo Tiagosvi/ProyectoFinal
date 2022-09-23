@@ -1,0 +1,1 @@
+1- Nueva pagina cargar resultados, elegir los 2 equipos y los goles. NO SE PUEDE ELEGIR EL MISMO EQUIPO.

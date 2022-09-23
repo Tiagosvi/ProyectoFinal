@@ -57,6 +57,14 @@ Where F.Fecha = 1 AND F.IdLiga = 1
 
         }
     }
+
+
+public static  IEnumerable<ResultadosModel> ElegirResultado(){
+ string sql="INSERT INTO[Resultados](Equipo1, Equipo2, Goles1, Goles2) VALUES (@pEquipo1, @pEquipo2, @pGoles1, @pGoles2)";
+            using(SqlConnection BD=new SqlConnection(_connectionString)){
+              BD.Execute(sql,new{pIdCurso=MiCurso.IdCurso, pNombre=MiCurso.Nombre, pDescripcion=MiCurso.Descripcion, pImagen=MiCurso.Imagen, pUrlCurso=MiCurso.UrlCurso, pMeGusta=MiCurso.MeGusta, pNoMeGusta=MiCurso.NoMeGusta, pIdEspecialidad=MiCurso.IdEspecialidad});
+}
+
 }
 
 

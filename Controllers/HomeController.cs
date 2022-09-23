@@ -44,7 +44,24 @@ namespace ProyectoFinal.Controllers
             return View("Resultados");
         }
 
-      
+       public IActionResult CargaResultados(int liga = 0, int fecha=0)
+        {
+            ViewBag.ListaLigas = BD.ListarLigas();
+            ViewBag.LigaSeleccionada = liga;
+            if(liga > 0){
+                ViewBag.ListaFechas = BD.ListarFechas(liga);
+            }
+            return View("CargarResultados");
+         
+        }
+
+        [HttpPost]
+        public IActionResult GuardarResultado(string Equipo1, string Equipo2, int Goles1, int Goles2)
+        {
+            ResultadosModel=new Resultado(Equipo1, Equipo2, Goles1, Goles2);
+            BD.ElegirResultado(Resultado);
+            return Redirect("Index/Home");
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

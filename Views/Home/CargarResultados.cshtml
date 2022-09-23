@@ -1,0 +1,35 @@
+<div class="container">
+        <div class = "row">
+            <div class="col-md-6 pull-left">
+<form method="POST" action='@Url.Action("CargaResultados","Home")'>
+    <div class="izq"></div>
+<div class="sidebar-box">
+     <select name="liga" class="select-css" onchange="this.form.submit()">
+        <option value="0">Elegir</option>
+                @foreach (LigasModel UnaLiga in ViewBag.ListaLigas)
+        {
+          if(UnaLiga.IdLiga==ViewBag.LigaSeleccionada)
+          {  
+              <option selected value="@UnaLiga.IdLiga">@UnaLiga.NombreLiga</option>
+          }
+          else
+          {
+              <option value="@UnaLiga.IdLiga">@UnaLiga.NombreLiga</option>
+          }  
+        }
+    </select>
+
+    @if (ViewBag.LigaSeleccionada > 0)
+    {
+            <select name="fecha" class= "select-css" onchange="this.form.submit()">
+                <option value="0">Elegir</option>
+            @foreach (FechasModel UnaFecha in ViewBag.ListaFechas)
+            {
+                
+            <option value="@UnaFecha.IdFecha">@UnaFecha.Fecha</option>
+            }
+            </select>
+       
+    }
+</div>
+</form>

@@ -56,9 +56,9 @@ namespace ProyectoFinal.Controllers
         }
 
         [HttpPost]
-        public IActionResult GuardarResultado(string Equipo1, string Equipo2, int Goles1, int Goles2)
+        public IActionResult GuardarResultado(int IdFecha, string Equipo1, string Equipo2, int Goles1, int Goles2)
         {
-            ResultadosModel Resul=new Resultado(Equipo1, Equipo2, Goles1, Goles2);
+            ResultadosModel Resul=new ResultadosModel(IdFecha, Equipo1, Equipo2, Goles1, Goles2);
             BD.AgregarResultado(Resul);
             return Redirect("Resultados/Home");
         }

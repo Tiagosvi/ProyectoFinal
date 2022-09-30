@@ -9,7 +9,7 @@ namespace ProyectoFinal.Models
 {
     public static class BD
     {
-        private static string _connectionString = @"Server=A-PHZ2-LUM-07;Database=BaseProyecto;Trusted_Connection=True;";
+        private static string _connectionString = @"Server=A-PHZ2-CIDI-039;Database=BaseProyecto;Trusted_Connection=True;";
         private static string sql="";
 
 
@@ -58,10 +58,10 @@ Where F.Fecha = 1 AND F.IdLiga = 1
         }
 
 
-public static  IEnumerable<ResultadosModel> AgregarResultado(ResultadosModel Resul){
+public static  int AgregarResultado(ResultadosModel Resul){
+using(SqlConnection db=new SqlConnection(_connectionString)){
  string sql="INSERT INTO[Partidos](IdFecha, Equipo1, Equipo2, Goles1, Goles2) VALUES (@IdFecha, @pEquipo1, @pEquipo2, @pGoles1, @pGoles2)";
-      using(SqlConnection BD=new SqlConnection(_connectionString)){
-              BD.Execute(sql,new{pEquipo1=Resul.Equipo1, pEquipo2=Resul.Equipo2, pGoles1=Resul.Goles1, pGoles2=Resul.Goles2});
+              return db.Execute(sql,new{pEquipo1=Resul.Equipo1, pEquipo2=Resul.Equipo2, pGoles1=Resul.Goles1, pGoles2=Resul.Goles2});
             }
         }
     }

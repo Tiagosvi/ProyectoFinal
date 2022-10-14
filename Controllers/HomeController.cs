@@ -51,8 +51,13 @@ namespace ProyectoFinal.Controllers
             if(liga > 0){
                 ViewBag.ListaFechas = BD.ListarFechas(liga);
             }
+             if(liga>0 && fecha>0)
+            {
+                ViewBag.FechaSeleccionada=fecha;
+                ViewBag.f = BD.f(liga, fecha);
             return View("CargarResultados");
          
+        }
         }
 
         [HttpPost]
@@ -70,3 +75,4 @@ namespace ProyectoFinal.Controllers
         }
     }
 }
+

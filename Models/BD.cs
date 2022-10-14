@@ -9,7 +9,8 @@ namespace ProyectoFinal.Models
 {
     public static class BD
     {
-        private static string _connectionString = @"Server=A-PHZ2-CIDI-039;Database=BaseProyecto;Trusted_Connection=True;";
+        private static string _connectionString = @"Server=A-PHZ2-CIDI-046
+        ;Database=BaseProyecto;Trusted_Connection=True;";
         private static string sql="";
 
 

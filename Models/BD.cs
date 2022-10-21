@@ -65,6 +65,18 @@ using(SqlConnection db=new SqlConnection(_connectionString)){
               return db.Execute(sql,new{pEquipo1=Resul.Equipo1, pEquipo2=Resul.Equipo2, pGoles1=Resul.Goles1, pGoles2=Resul.Goles2});
             }
         }
+
+public static List<ResultadosModel> ListarEquipos(int liga)
+{
+    List<ResultadosModel> Lista = null;
+    using(SqlConnection db = new SqlConnection(_connectionString))
+    {
+        sql = "SELECT * FROM Equipos Where @pIdLiga = Liga";
+        Lista = db.Query<ResultadosModel>(sql, new {pIdEquipo = Lista }).ToList();
+    }
+    return Lista;
+}
+
     }
 }
 

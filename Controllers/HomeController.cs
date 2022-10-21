@@ -48,16 +48,16 @@ namespace ProyectoFinal.Controllers
         {
             ViewBag.ListaLigas = BD.ListarLigas();
             ViewBag.LigaSeleccionada = liga;
+            
             if(liga > 0){
                 ViewBag.ListaFechas = BD.ListarFechas(liga);
             }
-             if(liga>0 && fecha>0)
+            if(liga>0 && fecha>0)
             {
                 ViewBag.FechaSeleccionada=fecha;
-                ViewBag.f = BD.f(liga, fecha);
+                ViewBag.ListaEquipos = BD.ListarEquipos(liga);                
+            }
             return View("CargarResultados");
-         
-        }
         }
 
         [HttpPost]

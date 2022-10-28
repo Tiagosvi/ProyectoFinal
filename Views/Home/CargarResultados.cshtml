@@ -4,7 +4,7 @@
 <form method="POST" action='@Url.Action("CargaResultados","Home")'>
     <div class="izq"></div>
 <div class="sidebar-box">
-     <select name="liga" class="select-css">
+     <select name="liga" class="select-css" onchange="this.form.submit()>
         <option value="0">Elegir</option>
                 @foreach (LigasModel UnaLiga in ViewBag.ListaLigas)
         {
@@ -31,16 +31,19 @@
        
     }
 
-
+@if (ViewBag.ListaEquipos != null){
 <select name="Equipo1" class= "select-css">
                 <option value="0">Elegir</option>
             @foreach (ResultadosModel UnEquipo in ViewBag.ListaEquipos)
             {
-                <option value="@UnEquipo
+                <option value="@UnEquipo.Equipo1">@UnEquipo.Equipo1</option>
+            }
                 
             </select>
 
-
+}
 
 </div>
 </form>
+            
+            

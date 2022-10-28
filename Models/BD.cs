@@ -9,7 +9,7 @@ namespace ProyectoFinal.Models
 {
     public static class BD
     {
-        private static string _connectionString = @"Server=A-PHZ2-CIDI-046
+        private static string _connectionString = @"Server=A-PHZ2-CIDI-047
         ;Database=BaseProyecto;Trusted_Connection=True;";
         private static string sql="";
 
@@ -72,7 +72,7 @@ public static List<ResultadosModel> ListarEquipos(int liga)
     using(SqlConnection db = new SqlConnection(_connectionString))
     {
         sql = "SELECT * FROM Equipos Where @pIdLiga = Liga";
-        Lista = db.Query<ResultadosModel>(sql, new {pIdEquipo = Lista }).ToList();
+        Lista = db.Query<ResultadosModel>(sql, new {pIdEquipo = Lista}).ToList();
     }
     return Lista;
 }

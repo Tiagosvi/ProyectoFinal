@@ -3,8 +3,8 @@
             <div class="col-md-6 pull-left">
 <form method="POST" action='@Url.Action("CargaResultados","Home")'>
     <div class="izq"></div>
-<div class="sidebar-box">
-     <select name="liga" class="select-css" onchange="this.form.submit()>
+    <div class="sidebar-box">
+     <select name="liga" class="select-css" onchange="this.form.submit()">
         <option value="0">Elegir</option>
                 @foreach (LigasModel UnaLiga in ViewBag.ListaLigas)
         {
@@ -16,16 +16,27 @@
           {
               <option value="@UnaLiga.IdLiga">@UnaLiga.NombreLiga</option>
           }  
+          
         }
-    </select>
+        </select>
+
+    
 
     @if (ViewBag.LigaSeleccionada > 0)
     {
-            <select name="fecha" class= "select-css">
+            <select name="fecha" class= "select-css"  onchange="this.form.submit()">
                 <option value="0">Elegir</option>
             @foreach (FechasModel UnaFecha in ViewBag.ListaFechas)
             {
-                <option value="@UnaFecha.IdFecha">@UnaFecha.Fecha</option>
+                          if(UnaFecha.IdFecha==ViewBag.FechaSeleccionada)
+          {  
+              <option selected value="@UnaFecha.IdFecha">@UnaFecha.IdFecha</option>
+          }
+          else
+          {
+              <option value="@UnaFecha.IdFecha">@UnaFecha.IdFecha</option>
+          }  
+          
             }
             </select>
        
@@ -33,10 +44,11 @@
 
 @if (ViewBag.ListaEquipos != null){
 <select name="Equipo1" class= "select-css">
+      
                 <option value="0">Elegir</option>
-            @foreach (ResultadosModel UnEquipo in ViewBag.ListaEquipos)
+            @foreach (EquiposModel UnEquipo in ViewBag.ListaEquipos)
             {
-                <option value="@UnEquipo.Equipo1">@UnEquipo.Equipo1</option>
+                <option value="@UnEquipo.IdEquipo">@UnEquipo.Nombre</option>
             }
                 
             </select>

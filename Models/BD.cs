@@ -59,10 +59,11 @@ Where F.Fecha = 1 AND F.IdLiga = 1
         }
 
 
-public static  int AgregarResultado(ResultadosModel Resul){
-using(SqlConnection db=new SqlConnection(_connectionString)){
- string sql="INSERT INTO[Partidos]Equipo1, Equipo2, Goles1, Goles2) VALUES (@pReEquipo1, @pEquipo2, @pGoles1, @pGoles2)";
-              return db.Execute(sql,new{Equipo1=Resul.Equipo1, Equipo2=Resul.Equipo2, Goles1=Resul.Goles1, Goles2=Resul.Goles2});
+public static void AgregarResultado (ResultadosModel Resul) {
+Console.WriteLine(Resul.IdFecha);
+ string sql="INSERT INTO [Partidos] (IdFecha, IdEquipo1, IdEquipo2, Goles1, Goles2) VALUES (@pIdFecha, @pEquipo1, @pEquipo2, @pGoles1, @pGoles2)";
+ using(SqlConnection db=new SqlConnection(_connectionString)){
+              db.Execute(sql, new{pIdFecha = Resul.IdFecha, pEquipo1=Resul.Equipo1, pEquipo2=Resul.Equipo2, pGoles1=Resul.Goles1, pGoles2=Resul.Goles2});
             }
         }
 

@@ -24,27 +24,38 @@
 
     @if (ViewBag.LigaSeleccionada > 0)
     {
-            <select name="fecha" class= "select-css"  onchange="this.form.submit()">
-                <option value="0">Elegir</option>
-            @foreach (FechasModel UnaFecha in ViewBag.ListaFechas)
-            {
-                          if(UnaFecha.IdFecha==ViewBag.FechaSeleccionada)
+        <select name="fecha" class="select-css"  onchange="this.form.submit()">
+            <option value="0"> Elegir </option>
+         @foreach (FechasModel UnaFecha in ViewBag.ListaFechas)
+         {
+            if(UnaFecha.IdFecha==ViewBag.FechaSeleccionada)
           {  
-              <option selected value="@UnaFecha.IdFecha">@UnaFecha.IdFecha</option>
+              <option selected value="@UnaFecha.IdFecha">@UnaFecha.Fecha</option>
           }
           else
           {
-              <option value="@UnaFecha.IdFecha">@UnaFecha.IdFecha</option>
+              <option value="@UnaFecha.IdFecha">@UnaFecha.Fecha</option>
           }  
           
             }
             </select>
        
     }
+</form>
 
+<form method="POST" action='@Url.Action("GuardarResultado","Home")'>
+    <p>Equipo 1</p>
 @if (ViewBag.ListaEquipos != null){
 <select name="Equipo1" class= "select-css">
-      
+                <option value="0">Elegir</option>
+            @foreach (EquiposModel UnEquipo in ViewBag.ListaEquipos)
+            {
+                <option value="@UnEquipo.IdEquipo">@UnEquipo.Nombre</option>
+            }
+                
+            </select>
+          <p>Equipo 2</p>
+            <select name="Equipo2" class= "select-css">
                 <option value="0">Elegir</option>
             @foreach (EquiposModel UnEquipo in ViewBag.ListaEquipos)
             {
@@ -55,7 +66,15 @@
 
 }
 
-</div>
+<label for="Name">Goles</label>
+<input type="number" id="Equipo1" name="Goles1">
+<input type="number" id="Equipo2" name="Goles2">
+
+<input class="btn btn-primary" type="submit" value="Submit">
+
 </form>
+
+</div>
+
             
             

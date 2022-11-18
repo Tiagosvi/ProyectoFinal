@@ -38,9 +38,8 @@ namespace ProyectoFinal.Models
             _UrlImagenEquipo2 = UrlImagenEquipo2;
         }
 
-         public ResultadosModel(int IdFecha, string Equipo1, string Equipo2, int Goles1, int Goles2)
+         public ResultadosModel(string Equipo1, string Equipo2, int Goles1, int Goles2)
         {
-            _IdFecha = IdFecha;
             _Equipo1 = Equipo1;
             _Equipo2 = Equipo2;
             _Goles1 = Goles1;

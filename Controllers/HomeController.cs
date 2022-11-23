@@ -65,7 +65,7 @@ namespace ProyectoFinal.Controllers
         {
             ResultadosModel Resul=new ResultadosModel(IdFecha, Equipo1, Equipo2, Goles1, Goles2);
             BD.AgregarResultado(Resul);
-            return Redirect("Resultados/Home");
+            return RedirectToAction("SeleccionarLiga");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

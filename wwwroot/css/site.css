@@ -203,3 +203,11 @@ tr{
 .center {
 text-align: center;
 }
+
+
+.titulo {
+  font-family: Impact;
+  font-weight: bold;
+  font-size: 56px;
+  color: black
+}
